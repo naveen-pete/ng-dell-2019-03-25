@@ -1,0 +1,16 @@
+<div class="container">
+  <h3>Products</h3>
+
+  <div>Product Name: {{ productName }}</div>
+  <div>Product Price: {{ productPrice }}</div>
+
+  <div>
+    <input type="text" class="form-control" [(ngModel)]="productName" (keyup)="onKeyup($event)">
+  </div>
+
+  <div>
+    <button class="btn btn-primary" (click)="onSave()">Save</button>
+  </div>
+
+  <div>Product <strong>{{ productName }}</strong> costs Rs. {{ productPrice }}</div>
+</div>
