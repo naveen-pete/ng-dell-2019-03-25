@@ -3,7 +3,9 @@ import { Injectable } from '@angular/core';
 import { Product } from '../models/product';
 import { LoggerService } from './logger.service';
 
-@Injectable()
+@Injectable({
+  providedIn: 'root'
+})
 export class ProductsService {
   private products: Product[] = [
     {
