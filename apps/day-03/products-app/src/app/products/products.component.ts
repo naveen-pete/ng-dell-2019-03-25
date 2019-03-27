@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 
 import { Product } from '../models/product';
 
@@ -7,10 +7,7 @@ import { Product } from '../models/product';
   templateUrl: './products.component.html',
   styleUrls: ['./products.component.css']
 })
-export class ProductsComponent implements OnInit {
-  product: Product = new Product();
-  showMessage: boolean = false;
-
+export class ProductsComponent {
   products: Product[] = [
     {
       id: 1,
@@ -35,36 +32,7 @@ export class ProductsComponent implements OnInit {
     }
   ];
 
-  constructor() {
-    // this.productName = 'Dell Inspiron';
+  onProductCreated(product: Product) {
+    this.products.unshift(product);
   }
-
-  ngOnInit() {
-  }
-
-  onSave() {
-    this.products.unshift(this.product);
-    this.showMessage = true;
-
-    console.log('Product saved.');
-
-    // let obj = this;
-    // setTimeout(function () {
-    //   console.log(obj);
-    //   obj.showMessage = false;
-    //   console.log('showMessage reset to false');
-    // }, 4000);
-
-    setTimeout(() => {
-      this.showMessage = false;
-      console.log('showMessage reset to false');
-    }, 4000);
-
-    this.product = new Product();
-  }
-
-  onKeyup(e) {
-    // console.log(e.target.value);
-  }
-
 }
