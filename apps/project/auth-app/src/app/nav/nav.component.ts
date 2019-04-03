@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { Router } from '@angular/router';
 
 import { AuthService } from '../services/auth.service';
 
@@ -9,9 +10,23 @@ import { AuthService } from '../services/auth.service';
 })
 export class NavComponent implements OnInit {
 
-  constructor(private authService: AuthService) { }
+  constructor(
+    private router: Router,
+    private authService: AuthService
+  ) { }
 
   ngOnInit() {
+  }
+
+  onLogout() {
+    this.authService.logout((error, success) => {
+      if (error) {
+        console.log('Error:', error);
+      } else {
+        console.log('Success:', success);
+        this.router.navigate(['/']);
+      }
+    });
   }
 
 }

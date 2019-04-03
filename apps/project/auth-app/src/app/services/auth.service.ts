@@ -55,4 +55,14 @@ export class AuthService {
 
     return this.user.loggedIn;
   }
+
+  getUserName(): string {
+    let userName = '';
+
+    if (this.user) {
+      userName = this.user.name;
+    }
+
+    return userName;
+  }
 }
