@@ -49,10 +49,10 @@ export class AuthService {
   }
 
   isAuthenticated(): boolean {
-    if (this.user) {
-      return true;
-    } else {
+    if (!this.user) {
       return false;
     }
+
+    return this.user.loggedIn;
   }
 }
